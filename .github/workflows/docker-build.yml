@@ -11,7 +11,7 @@ jobs:
 
     steps:
 
-      - name: Declarative: Checkout SCM
+      - name: Checkout SCM
         uses: actions/checkout@v2
         
       - name: Set up Node.js
