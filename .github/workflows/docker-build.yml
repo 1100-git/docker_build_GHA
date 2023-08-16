@@ -36,3 +36,12 @@ jobs:
 
       - name: Push Docker Image to Docker Hub
         run: docker push vlad1100/test:1233
+  test:
+        runs-on: ubuntu-latest
+        needs: build  # Вказуємо, що ця дія залежить від дії "build"
+          
+        steps:
+          - name: Abort On Upstream
+            uses: actions/abort-action@v1
+            with:
+              dependencies: build 
