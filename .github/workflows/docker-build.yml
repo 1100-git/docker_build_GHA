@@ -10,6 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      - name: Declarative: Checkout SCM
+        uses: actions/checkout@v2
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
       - name: Checkout Repository
         uses: actions/checkout@v2
 
@@ -23,4 +35,4 @@ jobs:
         run: docker login -u vlad1100 -p ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker Image to Docker Hub
-        run: docker push vlad1100/test:1100
+        run: docker push vlad1100/test:1233
