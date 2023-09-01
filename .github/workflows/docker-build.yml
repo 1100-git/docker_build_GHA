@@ -31,8 +31,8 @@ jobs:
       - name: Configure AWS Credentials for GitHub Role
         uses: aws-actions/configure-aws-credentials@v3
         with:
-          role-to-assume: arn:aws:iam::333300162796:role/s3-test-apt-deb
           aws-region: us-west-2
+          role-to-assume: arn:aws:iam::333300162796:role/s3-test-apt-deb
           audience: sts.amazonaws.com
 
       - name: Login to Amazon ECR
