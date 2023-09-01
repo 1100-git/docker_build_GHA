@@ -38,10 +38,10 @@ jobs:
 
 
 
-      - name: copy amazon deb
-        run: |
-          aws s3 cp s3://1100-deb/pack_1100.deb . --no-progress
-          ls -la
+      # - name: copy amazon deb
+      #   run: |
+      #     aws s3 cp s3://1100-deb/pack_1100.deb . --no-progress
+      #     ls -la
 
       - name: Build Docker Image
         run: docker build -t vlad1100/test:1100 .
