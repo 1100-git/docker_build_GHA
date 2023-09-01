@@ -16,6 +16,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: install aws-cli
+        run: |
+          docker run --rm amazon/aws-cli --version
+
+      - name: Set AWS credentials as environment variables
+        run: |
+          echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}" >> $GITHUB_ENV
+          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
+
       - name: Configure AWS Credentials for GitHub Role
         uses: aws-actions/configure-aws-credentials@v2
         with:
@@ -33,15 +42,6 @@ jobs:
           cd ~
           aws s3 cp s3://1100-deb/pack_1100.deb . --no-progress
           ls -la
-
-      # - name: install aws-cli
-      #   run: |
-      #     docker run --rm amazon/aws-cli --version
-
-      # - name: Set AWS credentials as environment variables
-      #   run: |
-      #     echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}" >> $GITHUB_ENV
-      #     echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
 
       - name: Checkout SCM
         uses: actions/checkout@v2
