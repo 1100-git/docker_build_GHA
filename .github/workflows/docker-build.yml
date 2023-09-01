@@ -25,14 +25,15 @@ jobs:
           echo "Setting up AWS CLI..."
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws configure set default.region us-east-1
+          aws configure set default.region us-west-2
           echo "AWS CLI configured."
 
       - name: Configure AWS Credentials for GitHub Role
         uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::333300162796:role/s3-test-apt-deb
-          aws-region: us-east-1
+          aws-region: us-west-2
+          audience: sts.amazonaws.com
 
       - name: Login to Amazon ECR
         id: login-ecr
