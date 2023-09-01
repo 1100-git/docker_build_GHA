@@ -15,7 +15,7 @@ jobs:
 
       - name: install aws-cli
         run: |
-          docker run --rm -it amazon/aws-cli aws --version
+          docker run --rm amazon/aws-cli aws --versio
 
       - name: Set AWS credentials as environment variables
         run: |
