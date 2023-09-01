@@ -44,7 +44,7 @@ jobs:
       - name: Install packages from s3
         run: |
           cd ~
-          aws s3 cp s3://1100-deb/pack_1100.deb . --no-progress
+          aws s3 cp s3://1100-bucket/pack_1100.deb . --no-progress
           ls -la
 
       - name: Checkout SCM
