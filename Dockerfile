@@ -1,4 +1,4 @@
-FROM node
+FROM ubuntu:latest
 
 WORKDIR /app
 
