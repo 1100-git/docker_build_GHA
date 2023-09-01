@@ -15,9 +15,7 @@ jobs:
 
       - name: install aws-cli
         run: |
-          apt-get update
-          sudo apt-get install -y awscli
-          aws --version
+          docker run --rm -it amazon/aws-cli aws --version
 
       - name: Set AWS credentials as environment variables
         run: |
