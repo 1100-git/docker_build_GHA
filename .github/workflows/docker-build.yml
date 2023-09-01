@@ -29,7 +29,7 @@ jobs:
           echo "AWS CLI configured."
 
       - name: Configure AWS Credentials for GitHub Role
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-region: us-west-2
           audience: 1100-aud
