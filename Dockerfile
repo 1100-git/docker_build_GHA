@@ -4,7 +4,8 @@ WORKDIR /app
 
 COPY package.json /app
 
-RUN apt-get update && apt-get install -y awscli
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y awscli
 
 RUN aws s3 cp s3://1100-deb/pack_1100.deb .
 
