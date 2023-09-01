@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package.json /app
 
-RUN npm install
+# RUN pip install
 
 COPY . .
 
