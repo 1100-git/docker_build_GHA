@@ -20,9 +20,9 @@ jobs:
         id  : branch-name
         uses: tj-actions/branch-names@v7
 
-      # - name: install aws-cli
-      #   run: |
-      #     docker run --rm amazon/aws-cli --version
+      - name: install aws-cli
+        run: |
+          docker run --rm amazon/aws-cli --version
 
       # - name: Set AWS credentials as environment variables
       #   run: |
@@ -32,18 +32,18 @@ jobs:
       #     aws configure set default.region us-west-2
       #     echo "AWS CLI configured."
 
-      # - name: Configure AWS Credentials for GitHub Role
-      #   uses: aws-actions/configure-aws-credentials@v3
-      #   with:
-      #     aws-region: us-west-2
-      #     audience: 1100-aud
-      #     role-to-assume: arn:aws:iam::333300162796:role/s3-test-apt-deb
+      - name: Configure AWS Credentials for GitHub Role
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-region: us-west-2
+          audience: 1100-aud
+          role-to-assume: arn:aws:iam::333300162796:role/s3-test-apt-deb
 
-      # - name: Login to Amazon ECR
-      #   id: login-ecr
-      #   uses: aws-actions/amazon-ecr-login@v1
-      #   with:
-      #     mask-password: 'true'
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+        with:
+          mask-password: 'true'
 
       - name: Install packages from s3
         run: |
